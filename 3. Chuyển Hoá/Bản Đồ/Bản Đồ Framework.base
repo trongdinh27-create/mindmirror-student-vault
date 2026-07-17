@@ -1,0 +1,52 @@
+filters:
+  and:
+  - file.ext == "md"
+  - (file.inFolder("3. Chuyển Hoá/Tri Thức/Framework") || file.hasTag("framework"))
+formulas:
+  so_ngay: (now() - file.ctime).days
+properties:
+  file.name:
+    displayName: Framework
+  created:
+    displayName: Ngày tạo
+  source:
+    displayName: Nguồn
+  up:
+    displayName: Bản Đồ Chủ Đề
+  tags:
+    displayName: Tags
+  formula.so_ngay:
+    displayName: Tuổi (ngày)
+views:
+- type: table
+  name: Tất cả
+  order:
+  - file.name
+  - type
+  - created
+  - source
+  - up
+  columnSize:
+    file.name: 480
+- type: table
+  name: Mới (30 ngày)
+  filters:
+    and:
+    - (now() - file.ctime).days <= 30
+  order:
+  - file.name
+  - created
+  - formula.so_ngay
+  - source
+- type: cards
+  name: Theo nguồn
+  filters:
+    and:
+    - source
+  groupBy:
+    property: source
+    direction: ASC
+  order:
+  - file.name
+  - created
+  - source

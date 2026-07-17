@@ -1,0 +1,52 @@
+filters:
+  and:
+  - file.ext == "md"
+  - or:
+    - file.inFolder("2. Tinh Lọc/Nhật Ký Ngày")
+    - file.inFolder("2. Tinh Lọc/Tổng Kết Tuần")
+formulas:
+  loai: if(file.folder.contains("Tổng Kết Tuần"), "Tổng Kết Tuần", "Nhật Ký Ngày")
+  so_ngay: (now() - file.ctime).days
+properties:
+  file.name:
+    displayName: Ghi chú
+  formula.loai:
+    displayName: Loại
+  created:
+    displayName: Ngày
+  week:
+    displayName: Tuần
+  file.mtime:
+    displayName: Cập nhật
+views:
+- type: table
+  name: Tổng Kết Tuần
+  filters:
+    and:
+    - file.inFolder("2. Tinh Lọc/Tổng Kết Tuần")
+  order:
+  - file.name
+  - week
+  - created
+  - file.mtime
+  columnSize:
+    file.name: 480
+- type: table
+  name: Nhật Ký Gần Đây
+  limit: 30
+  filters:
+    and:
+    - file.inFolder("2. Tinh Lọc/Nhật Ký Ngày")
+  order:
+  - file.name
+  - created
+  - file.mtime
+- type: cards
+  name: Tất cả
+  groupBy:
+    property: formula.loai
+    direction: ASC
+  order:
+  - file.name
+  - formula.loai
+  - created

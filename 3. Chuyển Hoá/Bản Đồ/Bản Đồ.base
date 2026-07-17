@@ -1,0 +1,42 @@
+filters:
+  and:
+  - file.ext == "base"
+  - file.inFolder("3. Chuyển Hoá/Bản Đồ")
+  - file.path != "3. Chuyển Hoá/Bản Đồ/Bản Đồ.base"
+formulas:
+  loai: if(file.folder.contains("Bản Đồ Chủ Đề"), "Bản Đồ Chủ Đề", "Dashboard")
+  cap_nhat: file.mtime.format("DD/MM/YYYY")
+properties:
+  file.name:
+    displayName: Bản Đồ
+  formula.loai:
+    displayName: Loại
+  formula.cap_nhat:
+    displayName: Cập nhật
+  file.folder:
+    displayName: Vị trí
+views:
+- type: table
+  name: Tất cả
+  order:
+  - file.name
+  - formula.loai
+  - formula.cap_nhat
+  columnSize:
+    file.name: 500
+- type: cards
+  name: Dashboard
+  filters:
+    and:
+    - file.folder == "3. Chuyển Hoá/Bản Đồ"
+  order:
+  - file.name
+  - formula.cap_nhat
+- type: cards
+  name: Bản Đồ Chủ Đề
+  filters:
+    and:
+    - file.folder == "3. Chuyển Hoá/Bản Đồ/Bản Đồ Chủ Đề"
+  order:
+  - file.name
+  - formula.cap_nhat

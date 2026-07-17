@@ -1,0 +1,45 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.ctime >= today()
+formulas:
+  gio_tao: file.ctime.format("HH:mm")
+  loai: if(file.folder.contains("1. Thu Thập"), "Thu Thập", if(file.folder.contains("2. Tinh Lọc"), "Tinh Lọc", if(file.folder.contains("3. Chuyển Hoá"), "Chuyển Hoá", if(file.folder.contains("4. Kiến Tạo"), "Kiến Tạo", "Khác"))))
+properties:
+  file.name:
+    displayName: Ghi chú
+  formula.gio_tao:
+    displayName: Giờ tạo
+  formula.loai:
+    displayName: Tầng
+  file.folder:
+    displayName: Vị trí
+  tags:
+    displayName: Tags
+views:
+  - type: table
+    name: Theo giờ tạo
+    order:
+      - file.name
+      - formula.gio_tao
+      - formula.loai
+      - file.folder
+    columnSize:
+      file.name: 500
+  - type: table
+    name: Theo vị trí
+    groupBy:
+      property: formula.loai
+      direction: ASC
+    order:
+      - file.name
+      - formula.loai
+      - formula.gio_tao
+      - file.folder
+  - type: cards
+    name: Thẻ
+    order:
+      - file.name
+      - formula.loai
+      - formula.gio_tao
+      - tags

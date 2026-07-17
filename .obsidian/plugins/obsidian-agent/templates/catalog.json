@@ -1,0 +1,22 @@
+[
+  { "file": "concept.md", "kind": "template", "label": "Concept — Khái niệm", "desc": "Định nghĩa \"X là gì\": bản chất, cơ chế, ví dụ, phạm vi." },
+  { "file": "problem-driven-method.md", "kind": "template", "label": "Method — Phương pháp", "desc": "Quy trình các bước \"làm thế nào\" (HOW), có input → output." },
+  { "file": "problem-driven-principle.md", "kind": "template", "label": "Principle — Nguyên tắc", "desc": "Luật bất biến để ra quyết định (DECIDE), dạng câu mệnh lệnh." },
+  { "file": "problem-driven-tool.md", "kind": "template", "label": "Tool — Công cụ", "desc": "Phần mềm/SaaS cụ thể: pricing, pros/cons, alternatives để adopt/drop." },
+  { "file": "problem-driven-symptom.md", "kind": "template", "label": "Symptom — Triệu chứng", "desc": "Dấu hiệu đang gặp, chưa rõ nguyên nhân gốc." },
+  { "file": "problem-driven-new-problem.md", "kind": "template", "label": "Problem — Vấn đề mới", "desc": "Vấn đề cần giải, có outcome đo được (\"giải xong trông thế nào\")." },
+  { "file": "problem-driven-hub.md", "kind": "template", "label": "Hub — Cụm vấn đề", "desc": "Điều hướng 1 cluster gồm nhiều problem cùng area." },
+  { "file": "problem-driven-hub-cha.md", "kind": "template", "label": "Hub cha — Area lớn", "desc": "Gom nhiều hub con cho một lĩnh vực lớn." },
+  { "file": "daily-note.md", "kind": "template", "label": "Daily — Nhật ký ngày", "desc": "Ghi chép hằng ngày: việc quan trọng, capture, review." },
+  { "file": "meeting-note.md", "kind": "template", "label": "Meeting — Biên bản họp", "desc": "Mỗi quyết định có owner + deadline để đẩy thành task." },
+  { "file": "project-log.md", "kind": "template", "label": "Project log — Log dự án", "desc": "Theo dõi dự án: milestones, cập nhật hằng tuần." },
+  { "file": "people-profile.md", "kind": "template", "label": "People — Hồ sơ người", "desc": "Profile 1 người + lịch sử tương tác để nhớ context." },
+  { "file": "book-highlights.md", "kind": "template", "label": "Book — Tóm tắt sách", "desc": "Highlights + ý giữ lại để promote thành concept." },
+  { "file": "github-repo.md", "kind": "template", "label": "GitHub repo", "desc": "Track repo open-source: health signals, license, intent adopt/fork." },
+  { "file": "moc.md", "kind": "template", "label": "MOC — Map of Content", "desc": "Bản đồ điều hướng cho một cluster note." },
+  { "file": "ghi-chu-nhanh.md", "kind": "template", "label": "Ghi chú nhanh — Capture", "desc": "Capture thô vào inbox, chưa atomic; promote sau." },
+  { "file": "prompt-template.md", "kind": "template", "label": "Prompt template — Prompt tái dùng", "desc": "Đóng gói 1 prompt tái sử dụng: mục đích, input, template, output, debug checklist." },
+  { "file": "quy-uoc-tao-note.md", "kind": "reference", "label": "Quy ước tạo note (taxonomy)", "desc": "Tham chiếu: giá trị type/status/area/tags hợp lệ." },
+  { "file": "huong-dan-su-dung-template.md", "kind": "reference", "label": "Hướng dẫn dùng template", "desc": "Tham chiếu: decision tree chọn template + so sánh." },
+  { "file": "7-nhom-quan-he-note.md", "kind": "reference", "label": "7 nhóm quan hệ (linking)", "desc": "Tham chiếu: 7 nhóm quan hệ semantic để justify link giữa các note." }
+]

@@ -1,0 +1,63 @@
+filters:
+  and:
+    - file.hasTag("statement")
+    - file.ext == "md"
+formulas:
+  nguon_ro: if(source, if(source == "Vault cũ — trước MindMirror", "🗄️ Vault cũ", "✓"), "—")
+  so_ngay: (now() - file.ctime).days
+properties:
+  file.name:
+    displayName: Kiến Thức Cốt Lõi
+  created:
+    displayName: Ngày tạo
+  source:
+    displayName: Nguồn
+  up:
+    displayName: Bản Đồ Chủ Đề
+  formula.nguon_ro:
+    displayName: Nguồn?
+  formula.so_ngay:
+    displayName: Tuổi (ngày)
+views:
+  - type: table
+    name: Tất cả
+    order:
+      - file.name
+      - created
+      - formula.nguon_ro
+      - source
+      - up
+    columnSize:
+      file.name: 474
+      note.created: 129
+  - type: table
+    name: Mới (30 ngày)
+    filters:
+      and:
+        - (now() - file.ctime).days <= 30
+    order:
+      - file.name
+      - created
+      - formula.so_ngay
+      - source
+  - type: cards
+    name: Theo nguồn
+    filters:
+      and:
+        - source
+        - source != "Vault cũ — trước MindMirror"
+    groupBy:
+      property: source
+      direction: ASC
+    order:
+      - file.name
+      - created
+  - type: table
+    name: Vault cũ — chưa rõ nguồn
+    filters:
+      and:
+        - source == "Vault cũ — trước MindMirror"
+    order:
+      - file.name
+      - created
+      - up

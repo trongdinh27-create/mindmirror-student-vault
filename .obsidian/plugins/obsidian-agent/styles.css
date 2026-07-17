@@ -1,0 +1,1122 @@
+/* ═══════════════════════════════════════════════════
+   Obsidian Agent — Premium Chat UI
+   Designed to blend with warm dark Obsidian themes
+   ═══════════════════════════════════════════════════ */
+
+/* ── Container ── */
+.obsidian-agent-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    font-family: var(--font-interface);
+}
+
+/* ── Header ── */
+.obsidian-agent-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px 10px;
+    background: var(--background-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.obsidian-agent-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.obsidian-agent-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text-normal);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.obsidian-agent-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.obsidian-agent-header-btns {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* ── Model Selector ── */
+.obsidian-agent-model-select {
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+    /* Vừa nội dung, không phình; cắt ellipsis khi hẹp */
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.obsidian-agent-model-select:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--text-normal);
+}
+
+/* ── Small Buttons (Header — "Cuộc hội thoại mới") ── */
+.obsidian-agent-btn-small {
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 4px 10px;
+    background: var(--interactive-accent) !important;
+    color: var(--text-on-accent) !important;
+    border: none !important;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.obsidian-agent-btn-small svg,
+.obsidian-agent-btn-secondary svg,
+.obsidian-agent-btn-danger svg,
+.obsidian-agent-btn-stop svg,
+.obsidian-agent-history-delete svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.obsidian-agent-btn-small:hover {
+    background: var(--interactive-accent-hover) !important;
+    color: var(--text-on-accent) !important;
+}
+
+/* ── Messages Area ── */
+.obsidian-agent-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.obsidian-agent-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.obsidian-agent-messages::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+}
+
+.obsidian-agent-empty {
+    text-align: center;
+    color: var(--text-faint);
+    margin: auto;
+    font-size: 0.85em;
+    font-style: italic;
+    opacity: 0.6;
+    padding: 40px 20px;
+}
+
+/* ── Message Bubbles ── */
+.obsidian-agent-msg {
+    display: flex;
+    gap: 10px;
+    padding: 10px 4px;
+    animation: agentFadeIn 0.3s ease;
+}
+
+@keyframes agentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.obsidian-agent-avatar {
+    font-size: 0.72em;
+    font-weight: 700;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+}
+
+.obsidian-agent-avatar-agent {
+    background: linear-gradient(135deg, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.25), hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.1));
+    color: var(--interactive-accent);
+    border: 1px solid hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
+}
+
+.obsidian-agent-avatar-agent svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--link-color);
+}
+
+.obsidian-agent-avatar-system svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-faint);
+}
+
+.obsidian-agent-avatar-user {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.obsidian-agent-avatar-system {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-faint);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.85em;
+}
+
+.obsidian-agent-content {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 14px;
+    border-radius: 12px;
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 92%;
+    font-size: 0.9em;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    overflow-x: hidden;
+}
+
+/* Inline code inside messages */
+.obsidian-agent-content code {
+    word-break: break-all;
+    white-space: pre-wrap;
+    font-size: 0.85em;
+    font-family: var(--font-monospace);
+    background: rgba(80, 140, 220, 0.12);
+    color: #8ab4f8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(80, 140, 220, 0.15);
+}
+
+/* Highlighted / mark text ($$commands$$) */
+.obsidian-agent-content mark,
+.obsidian-agent-content .cm-highlight {
+    background: rgba(80, 140, 220, 0.15) !important;
+    color: #8ab4f8 !important;
+    padding: 2px 6px;
+    border-radius: 4px;
+    word-break: break-all;
+    white-space: pre-wrap;
+    font-family: var(--font-monospace);
+    font-size: 0.85em;
+}
+
+/* Pre blocks (code fences) inside messages */
+.obsidian-agent-content pre {
+    overflow-x: auto;
+    max-width: 100%;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.84em;
+    font-family: var(--font-monospace);
+    background: rgba(30, 50, 80, 0.35) !important;
+    border: 1px solid rgba(80, 140, 220, 0.1);
+}
+
+.obsidian-agent-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-normal);
+}
+
+.obsidian-agent-content>*:first-child {
+    margin-top: 0;
+}
+
+.obsidian-agent-content>*:last-child {
+    margin-bottom: 0;
+}
+
+/* User message */
+.obsidian-agent-msg-user {
+    flex-direction: row-reverse;
+}
+
+.obsidian-agent-msg-user .obsidian-agent-avatar {
+    background: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15);
+}
+
+.obsidian-agent-msg-user .obsidian-agent-content {
+    background: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.1);
+    border: 1px solid hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15);
+    border-radius: 12px 12px 2px 12px;
+    color: var(--text-normal);
+}
+
+/* Assistant message */
+.obsidian-agent-msg-assistant .obsidian-agent-content {
+    border-radius: 12px 12px 12px 2px;
+}
+
+/* Code blocks in messages */
+.obsidian-agent-msg-user .obsidian-agent-content code {
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text-normal);
+}
+
+/* Internal links in messages */
+.obsidian-agent-content a.internal-link {
+    color: var(--link-color) !important;
+    text-decoration: none;
+    border-bottom: 1px dotted color-mix(in srgb, var(--link-color), transparent 60%);
+    transition: border-color 0.2s ease;
+}
+
+.obsidian-agent-content a.internal-link:hover {
+    border-bottom-color: var(--link-color);
+}
+
+/* Collapsible WRITE blocks */
+.obsidian-agent-write-block {
+    margin: 8px 0;
+    border: 1px solid rgba(80, 140, 220, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.obsidian-agent-write-block summary {
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 0.84em;
+    font-family: var(--font-monospace);
+    font-weight: 600;
+    color: #8ab4f8;
+    background: rgba(80, 140, 220, 0.08);
+    border-bottom: 1px solid rgba(80, 140, 220, 0.1);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.obsidian-agent-write-block summary::before {
+    content: '▶';
+    font-size: 0.7em;
+    transition: transform 0.2s ease;
+}
+
+.obsidian-agent-write-block[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.obsidian-agent-write-block summary::-webkit-details-marker {
+    display: none;
+}
+
+.obsidian-agent-write-block pre {
+    margin: 0 !important;
+    border-radius: 0 0 8px 8px !important;
+    border: none !important;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Streaming indicator */
+.obsidian-agent-streaming {
+    opacity: 0.85;
+}
+
+/* ── Input Area ── */
+.obsidian-agent-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px 14px;
+    background: var(--background-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ── Attachments ── */
+.obsidian-agent-attachment-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.obsidian-agent-attachment-chip {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.75em;
+    color: var(--text-muted);
+}
+
+.obsidian-agent-attachment-icon {
+    display: flex;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.obsidian-agent-attachment-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.obsidian-agent-attachment-name {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.obsidian-agent-attachment-remove {
+    display: flex;
+    margin-left: 6px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.obsidian-agent-attachment-remove:hover {
+    opacity: 1;
+    color: #e74c3c;
+}
+
+.obsidian-agent-attachment-remove svg {
+    width: 10px;
+    height: 10px;
+}
+
+.obsidian-agent-textarea {
+    width: 100%;
+    min-height: 60px;
+    max-height: 150px;
+    resize: none;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-normal);
+    padding: 10px 14px;
+    font-family: var(--font-interface);
+    font-size: 0.88em;
+    line-height: 1.5;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.obsidian-agent-textarea:focus {
+    border-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.4);
+    box-shadow: 0 0 0 2px hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.08);
+    outline: none;
+}
+
+.obsidian-agent-dragover {
+    border-color: var(--interactive-accent) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.obsidian-agent-textarea::placeholder {
+    color: var(--text-faint);
+    font-size: 0.92em;
+}
+
+/* ── Button Row ── */
+.obsidian-agent-btn-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 0;
+}
+
+.obsidian-agent-btn-primary,
+.obsidian-agent-btn-secondary {
+    padding: 7px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8em;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+}
+
+.obsidian-agent-btn-primary {
+    background: var(--interactive-accent) !important;
+    color: var(--text-on-accent) !important;
+    border: none !important;
+    flex-grow: 1;
+}
+
+.obsidian-agent-btn-primary:hover {
+    background: var(--interactive-accent-hover) !important;
+}
+
+.obsidian-agent-btn-primary:active {
+    background: var(--interactive-accent-hover);
+}
+
+/* Mobile: nút Gửi co về bề rộng nội dung (không chiếm 1/2) để nhường chỗ cho model-select */
+.is-mobile .obsidian-agent-btn-primary {
+    flex: 0 1 auto;
+    min-width: 64px;
+}
+
+/* Mobile: model-select nở lấp khoảng trống → đẩy nút Gửi sát lề phải (thẳng block nhập tin) */
+.is-mobile .obsidian-agent-model-select {
+    flex: 1 1 auto;
+}
+
+.obsidian-agent-btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.obsidian-agent-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--text-normal);
+}
+
+.obsidian-agent-btn-icon-only {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    flex: 0 0 36px !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Desktop: nút icon vuông, cao bằng model-select/Gửi (mobile giữ nguyên 36×36) */
+body:not(.is-mobile) .obsidian-agent-btn-icon-only {
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    flex: 0 0 30px !important;
+}
+
+/* ── Nút mic khi đang ghi âm ── */
+.obsidian-agent-btn-recording {
+    color: #e74c3c !important;
+    animation: agentPulse 1.4s ease-in-out infinite;
+}
+
+.obsidian-agent-btn-recording svg {
+    color: #e74c3c !important;
+}
+
+/* ── Stop Button ── */
+.obsidian-agent-btn-stop {
+    padding: 7px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8em;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    border: none;
+    flex-grow: 1;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.25);
+    transition: all 0.2s ease;
+    animation: agentPulse 2s ease-in-out infinite;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+@keyframes agentPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.25);
+    }
+
+    50% {
+        box-shadow: 0 2px 16px rgba(231, 76, 60, 0.45);
+    }
+}
+
+.obsidian-agent-btn-stop:hover {
+    transform: translateY(-1px);
+}
+
+/* ═══════ System Result Collapsible ═══════ */
+.obsidian-agent-msg-system-result {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.obsidian-agent-msg-system-result:hover {
+    opacity: 0.9;
+}
+
+.obsidian-agent-collapsible-wrapper {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-left: 2px solid var(--interactive-accent);
+    border-radius: 8px !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.obsidian-agent-collapsible-wrapper details {
+    margin: 0;
+}
+
+.obsidian-agent-collapsible-title {
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 0.78em;
+    font-weight: 600;
+    color: var(--text-muted);
+    user-select: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s, background 0.15s;
+}
+
+.obsidian-agent-collapsible-title::before {
+    content: "▶";
+    font-size: 0.65em;
+    transition: transform 0.2s ease;
+    opacity: 0.5;
+}
+
+details[open]>.obsidian-agent-collapsible-title::before {
+    transform: rotate(90deg);
+}
+
+.obsidian-agent-collapsible-title::-webkit-details-marker {
+    display: none;
+}
+
+.obsidian-agent-collapsible-title:hover {
+    color: var(--text-normal);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.obsidian-agent-collapsible-body {
+    padding: 8px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    max-height: 250px;
+    overflow-y: auto;
+    font-size: 0.82em;
+    line-height: 1.4;
+}
+
+/* ═══════ History Panel ═══════ */
+.obsidian-agent-btn-history {
+    width: 100%;
+    text-align: center;
+    background: transparent !important;
+    color: var(--text-muted) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.obsidian-agent-btn-history:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-normal) !important;
+}
+
+.obsidian-agent-history-panel {
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    margin-top: 4px;
+    scrollbar-width: thin;
+}
+
+.obsidian-agent-history-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: background 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.obsidian-agent-history-item:last-child {
+    border-bottom: none;
+}
+
+.obsidian-agent-history-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.obsidian-agent-history-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+    cursor: pointer;
+}
+
+.obsidian-agent-history-preview {
+    font-size: 0.84em;
+    font-weight: 500;
+    color: var(--text-normal);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.obsidian-agent-history-date {
+    font-size: 0.7em;
+    color: var(--text-faint);
+    font-family: var(--font-monospace);
+}
+
+.obsidian-agent-history-delete {
+    background: #c0392b;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 4px 6px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.15s, background 0.15s;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.obsidian-agent-history-item:hover .obsidian-agent-history-delete {
+    opacity: 1;
+}
+
+.obsidian-agent-history-delete:hover {
+    opacity: 1 !important;
+    background: #e74c3c;
+}
+
+.obsidian-agent-history-clear-all {
+    padding: 6px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.obsidian-agent-btn-danger {
+    background: #c0392b !important;
+    color: #ffffff !important;
+    border: none !important;
+    width: 100%;
+    font-size: 0.72em !important;
+    opacity: 1;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+}
+
+.obsidian-agent-btn-danger:hover {
+    background: #e74c3c !important;
+    color: #ffffff !important;
+}
+/* ===== Slash command menu ===== */
+.obsidian-agent-slash-menu {
+    position: absolute;
+    bottom: 100%;
+    left: 12px;
+    right: 12px;
+    margin-bottom: 6px;
+    max-height: 280px;
+    overflow-y: auto;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 100;
+    padding: 4px;
+}
+
+.obsidian-agent-input-area {
+    position: relative;
+}
+
+.obsidian-agent-slash-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-normal);
+}
+
+.obsidian-agent-slash-item.is-selected {
+    background: var(--background-modifier-hover);
+}
+
+.obsidian-agent-slash-label {
+    font-family: var(--font-monospace);
+    font-weight: 600;
+    color: var(--text-accent);
+    flex-shrink: 0;
+    min-width: 90px;
+}
+
+.obsidian-agent-slash-hint {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ===== Vision image thumbnails ===== */
+.obsidian-agent-image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.obsidian-agent-image-thumb {
+    max-width: 240px;
+    max-height: 200px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.obsidian-agent-image-thumb:hover {
+    border-color: var(--text-accent);
+}
+
+/* ═══════════════════════════════════════════════════
+   Settings tab — section dividers + visual hierarchy
+   ═══════════════════════════════════════════════════ */
+.bob-settings h2 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.bob-settings h3 {
+    margin-top: 36px;
+    margin-bottom: 4px;
+    padding-top: 22px;
+    padding-bottom: 4px;
+    border-top: 1px solid var(--background-modifier-border);
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--text-normal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bob-settings h3:first-of-type {
+    margin-top: 18px;
+    padding-top: 0;
+    border-top: none;
+}
+
+.bob-settings .bob-section-desc {
+    font-size: 0.875em;
+    color: var(--text-muted);
+    margin: 6px 0 14px 0;
+    line-height: 1.55;
+    padding: 10px 14px;
+    background: var(--background-secondary);
+    border-radius: 6px;
+    border-left: 3px solid var(--text-accent);
+}
+
+.bob-settings .bob-section-desc code {
+    background: var(--background-modifier-border);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.92em;
+    font-family: var(--font-monospace);
+}
+
+.bob-settings .bob-section-desc a {
+    color: var(--text-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--background-modifier-border);
+    text-underline-offset: 2px;
+}
+
+.bob-settings .bob-section-desc a:hover {
+    text-decoration-color: var(--text-accent);
+}
+
+/* Profile editor card — visually group settings of 1 profile */
+.bob-settings .bob-profile-card {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+}
+
+.bob-settings .bob-profile-card .setting-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.bob-settings .bob-profile-card .setting-item:first-child {
+    padding-top: 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   Fix: embedded images in note attachments
+   ![[image.png]] in note content rendered full-size,
+   overlapping message bubble. Constrain to bubble width.
+   ═══════════════════════════════════════════════════ */
+.obsidian-agent-content img,
+.obsidian-agent-content svg,
+.obsidian-agent-content canvas,
+.obsidian-agent-content video {
+    max-width: 100%;
+    max-height: 360px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    margin: 6px 0;
+    display: block;
+}
+
+.obsidian-agent-content img.emoji,
+.obsidian-agent-content svg.svg-icon {
+    max-height: 1.2em;
+    border: none;
+    margin: 0;
+    display: inline;
+}
+
+/* Embedded note preview (Obsidian internal-embed) — collapse to summary */
+.obsidian-agent-content .internal-embed,
+.obsidian-agent-content .markdown-embed {
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 8px 0;
+    background: var(--background-secondary);
+}
+
+/* Defensive: img/video/iframe trong message container đều bị giới hạn.
+   !important + override inline style (Twitter/x.com video có inline width/height/position:absolute) */
+.obsidian-agent-messages img,
+.obsidian-agent-messages video,
+.obsidian-agent-messages iframe,
+.obsidian-agent-messages .internal-embed img,
+.obsidian-agent-messages .internal-embed video,
+.obsidian-agent-messages .video-embed,
+.obsidian-agent-messages .video-embed video {
+    max-width: 100% !important;
+    max-height: 360px !important;
+    height: auto !important;
+    width: auto !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    object-fit: contain !important;
+}
+
+/* Container embed có position absolute children → cần wrap, giới hạn height */
+.obsidian-agent-messages .internal-embed,
+.obsidian-agent-messages .markdown-embed,
+.obsidian-agent-messages .video-embed {
+    max-height: 380px !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   LIGHT THEME CORRECTIONS
+   Thiết kế gốc dùng white-overlay (rgba(255,255,255,…)) hợp nền tối
+   → vô hình / trùng nền trên light theme. Block dưới chỉ chỉnh light,
+   KHÔNG đụng tới dark design.
+   ═══════════════════════════════════════════════════ */
+
+/* Tiêu đề "Wiki Agent" — đen rõ trên nền sáng */
+.theme-light .obsidian-agent-header h3 {
+    color: var(--text-normal) !important;
+}
+
+/* Đường phân cách header / input area */
+.theme-light .obsidian-agent-header,
+.theme-light .obsidian-agent-input-area {
+    border-color: var(--background-modifier-border);
+}
+
+/* Ô nhập tin nhắn ("ô chat") — LUÔN nền trắng + viền rõ (không chỉ khi hover) */
+.theme-light .obsidian-agent-textarea {
+    background: var(--background-primary) !important;
+    border: 1px solid var(--background-modifier-border) !important;
+}
+
+/* Model select + attachment chip */
+.theme-light .obsidian-agent-model-select,
+.theme-light .obsidian-agent-attachment-chip {
+    background: var(--background-primary);
+    border-color: var(--background-modifier-border);
+}
+
+.theme-light .obsidian-agent-model-select:hover {
+    background: var(--background-modifier-hover);
+}
+
+/* Nút icon (đính kèm / ghi âm) — nền/viền trắng-mờ ở rule gốc vô hình trên light;
+   dùng biến button semantic để hiện rõ box trên cả desktop lẫn mobile. */
+.theme-light .obsidian-agent-btn-secondary {
+    background: var(--background-primary);
+    border-color: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+
+.theme-light .obsidian-agent-btn-secondary:hover {
+    background: var(--background-modifier-hover);
+}
+
+.theme-light .obsidian-agent-dragover {
+    background: var(--background-modifier-hover) !important;
+}
+
+/* Bong bóng tin nhắn — tách khỏi nền primary trắng */
+.theme-light .obsidian-agent-content {
+    background: var(--background-secondary);
+    border-color: var(--background-modifier-border);
+}
+
+/* Avatar user / system */
+.theme-light .obsidian-agent-avatar-user,
+.theme-light .obsidian-agent-avatar-system {
+    background: var(--background-modifier-hover);
+    border-color: var(--background-modifier-border);
+}
+
+/* Scrollbar khu vực tin nhắn */
+.theme-light .obsidian-agent-messages {
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.theme-light .obsidian-agent-messages::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Bubble actions: Copy + Tạo note + Attach selection ===== */
+.obsidian-agent-container { position: relative; }
+
+.obsidian-agent-msg-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid var(--background-modifier-border);
+    opacity: 0.45;
+    transition: opacity 0.15s ease;
+}
+.obsidian-agent-msg:hover .obsidian-agent-msg-actions { opacity: 1; }
+.obsidian-agent-msg-actions button {
+    padding: 2px 4px;
+    line-height: 1;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.obsidian-agent-msg-actions button .svg-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.obsidian-agent-selection-toolbar {
+    position: absolute;
+    z-index: 1000;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 4px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    display: none;
+    gap: 6px;
+    align-items: center;
+    font-size: 12px;
+    user-select: none;
+}
+.obsidian-agent-selection-toolbar.visible { display: flex; }
+.obsidian-agent-selection-toolbar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.obsidian-agent-selection-count {
+    color: var(--text-muted);
+    font-size: 11px;
+}

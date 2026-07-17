@@ -1,0 +1,29 @@
+# Dữ liệu riêng của học viên
+Me.md
+1. Thu Thập/**
+2. Tinh Lọc/Nhật Ký Ngày/**
+2. Tinh Lọc/Kiến Thức Nguồn/**
+2. Tinh Lọc/Tổng Kết Tuần/**
+3. Chuyển Hoá/Tri Thức/**
+4. Kiến Tạo/**
+5. Hộp Công Cụ/Tệp Đính Kèm/**
+6. OPC Company 2Brain/01. Inbox/**
+6. OPC Company 2Brain/02. Projects/**
+6. OPC Company 2Brain/People/**
+6. OPC Company 2Brain/Companies/**
+6. OPC Company 2Brain/Meetings/**
+6. OPC Company 2Brain/Decisions/**
+
+# Giữ cấu trúc và file mẫu
+!**/.gitkeep
+!**/README.md
+!**/[[]Ví dụ[]]*.md
+
+# Runtime/cache
+.DS_Store
+.trash/
+.obsidian/workspace*.json
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+.env
+*.log

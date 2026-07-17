@@ -1,0 +1,15 @@
+{
+  "cssTheme": "Soft Paper",
+  "theme": "system",
+  "accentColor": "#1F6F78",
+  "enabledCssSnippets": [
+    "callouts",
+    "nick-milo-callouts",
+    "watermark",
+    "popover-tweek",
+    "highlighter",
+    "workspace",
+    "markdown-embed"
+  ],
+  "nativeMenus": true
+}

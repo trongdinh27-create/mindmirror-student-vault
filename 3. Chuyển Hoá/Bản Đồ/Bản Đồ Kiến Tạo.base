@@ -1,0 +1,70 @@
+filters:
+  and:
+  - file.ext == "md"
+  - file.inFolder("4. Kiến Tạo")
+formulas:
+  khu_vuc: if(file.folder.contains("/1. Đang Làm"), "Đang Làm", if(file.folder.contains("/2. Lĩnh vực"), "Lĩnh Vực", if(file.folder.contains("/3. Tham khảo"), "Tham Khảo", "Tạm Dừng")))
+  so_ngay: (now() - file.mtime).days
+properties:
+  file.name:
+    displayName: Kiến Tạo
+  created:
+    displayName: Ngày tạo
+  source:
+    displayName: Nguồn
+  up:
+    displayName: Bản Đồ Chủ Đề
+  tags:
+    displayName: Tags
+  formula.so_ngay:
+    displayName: Tuổi (ngày)
+  rank:
+    displayName: Ưu tiên
+  deadline:
+    displayName: Hạn hoàn thành
+  status:
+    displayName: Trạng thái
+  formula.khu_vuc:
+    displayName: Khu vực
+views:
+- type: table
+  name: Đang Làm
+  filters:
+    and:
+    - file.inFolder("4. Kiến Tạo/1. Đang Làm")
+  order:
+  - file.name
+  - rank
+  - deadline
+  - status
+  - file.mtime
+  columnSize:
+    file.name: 460
+- type: table
+  name: Lĩnh Vực
+  filters:
+    and:
+    - file.inFolder("4. Kiến Tạo/2. Lĩnh vực")
+  order:
+  - file.name
+  - rank
+  - status
+  - file.mtime
+- type: table
+  name: Tham Khảo
+  filters:
+    and:
+    - file.inFolder("4. Kiến Tạo/3. Tham khảo")
+  order:
+  - file.name
+  - tags
+  - file.mtime
+- type: table
+  name: Tạm Dừng
+  filters:
+    and:
+    - file.inFolder("4. Kiến Tạo/4. Tạm Dừng")
+  order:
+  - file.name
+  - status
+  - file.mtime

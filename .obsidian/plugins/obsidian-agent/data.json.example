@@ -1,0 +1,5 @@
+{
+  "apiKey": "sk-trollllm-REPLACE_WITH_YOUR_KEY",
+  "baseUrl": "https://chat.trollllm.xyz/v1/chat/completions",
+  "model": "gpt-5.4"
+}

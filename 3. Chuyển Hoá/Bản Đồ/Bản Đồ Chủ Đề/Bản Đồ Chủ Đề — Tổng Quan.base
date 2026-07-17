@@ -1,0 +1,33 @@
+filters:
+  and:
+  - file.ext == "md"
+  - file.inFolder("3. Chuyển Hoá/Tri Thức")
+properties:
+  file.name:
+    displayName: Tri thức
+  up:
+    displayName: Bản Đồ Chủ Đề
+  source:
+    displayName: Nguồn
+  tags:
+    displayName: Tags
+  file.mtime:
+    displayName: Cập nhật
+views:
+- type: table
+  name: Tất cả tri thức
+  order:
+  - file.name
+  - up
+  - source
+  - tags
+  - file.mtime
+- type: table
+  name: Kiến Thức Cốt Lõi
+  filters:
+    and:
+    - file.hasTag("statement")
+  order:
+  - file.name
+  - up
+  - source
