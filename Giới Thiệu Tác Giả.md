@@ -5,7 +5,7 @@ author: Trọng Đinh
 
 # Trọng Đinh — Người Kiến Tạo MindMirror
 
-> Vault này không phải một công cụ ghi chú thông thường.
+> **Tôi tin rằng trong thời đại AI, con người không thiếu thông tin, công cụ hay câu trả lời. Điều họ thiếu là một hệ thống giúp họ hiểu chính mình, giữ được bản sắc tư duy và biến trải nghiệm sống thành giá trị thật.**
 
 Xin chào, tôi là **Trọng Đinh** — người xây dựng MindMirror Student Vault mà bạn đang cầm trên tay.
 
