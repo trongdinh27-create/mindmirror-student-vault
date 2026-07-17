@@ -14,10 +14,19 @@ Me.md
 6. OPC Company 2Brain/Meetings/**
 6. OPC Company 2Brain/Decisions/**
 
+# Cho phép git đi vào thư mục con để giữ khung (.gitkeep) và file ví dụ
+!1. Thu Thập/**/
+!2. Tinh Lọc/**/
+!3. Chuyển Hoá/**/
+!4. Kiến Tạo/**/
+!5. Hộp Công Cụ/**/
+
 # Giữ cấu trúc và file mẫu
 !**/.gitkeep
 !**/README.md
 !**/[[]Ví dụ[]]*.md
+!**/Ví dụ*.md
+!3. Chuyển Hoá/Tri Thức/Framework/Framework - Hệ Thống Chuyển Hoá — Cấu Trúc Và Vận Hành.md
 
 # Runtime/cache
 .DS_Store
