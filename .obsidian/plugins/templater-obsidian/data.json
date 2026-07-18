@@ -1,0 +1,84 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "5. Hộp Công Cụ/Template",
+  "templates_pairs": [
+    [
+      "",
+      ""
+    ]
+  ],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": false,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "1. Thu Thập",
+      "template": "5. Hộp Công Cụ/Template/Template - Ghi Nhanh.md"
+    },
+    {
+      "folder": "2. Tinh Lọc/Kiến Thức Nguồn",
+      "template": "5. Hộp Công Cụ/Template/Template - Kiến Thức Nguồn.md"
+    },
+    {
+      "folder": "2. Tinh Lọc/Kiến Thức Nguồn/People",
+      "template": "5. Hộp Công Cụ/Template/Template - People.md"
+    },
+    {
+      "folder": "2. Tinh Lọc/Nhật Ký Ngày",
+      "template": "5. Hộp Công Cụ/Template/Template - Nhật Ký Ngày.md"
+    },
+    {
+      "folder": "2. Tinh Lọc/Tổng Kết Tuần",
+      "template": "5. Hộp Công Cụ/Template/Template - Tổng Kết Tuần.md"
+    },
+    {
+      "folder": "3. Chuyển Hoá/Tri Thức/Kiến Thức Cốt Lõi",
+      "template": "5. Hộp Công Cụ/Template/Template - Kiến Thức Cốt Lõi.md"
+    },
+    {
+      "folder": "3. Chuyển Hoá/Tri Thức/Framework",
+      "template": "5. Hộp Công Cụ/Template/Template - Framework.md"
+    },
+    {
+      "folder": "4. Kiến Tạo/1. Đang Làm",
+      "template": "5. Hộp Công Cụ/Template/Template - Dự Án Đang Làm.md"
+    },
+    {
+      "folder": "2. Tinh Lọc",
+      "template": "5. Hộp Công Cụ/Template/Template — MindMirror C2 Clarified Note.md"
+    },
+    {
+      "folder": "3. Chuyển Hoá",
+      "template": "5. Hộp Công Cụ/Template/New Notes Template.md"
+    },
+    {
+      "folder": "4. Kiến Tạo",
+      "template": "5. Hộp Công Cụ/Template/New Notes Template.md"
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    {
+      "regex": ".*",
+      "template": ""
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    ""
+  ],
+  "startup_templates": [
+    ""
+  ],
+  "intellisense_render": 1,
+  "ignore_folders_on_creation": [
+    {
+      "folder": ""
+    }
+  ],
+  "no_empty_file_template": "5. Hộp Công Cụ/Template/New Notes Template.md"
+}

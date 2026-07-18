@@ -34,5 +34,7 @@ Me.md
 .obsidian/workspace*.json
 .obsidian/cache/
 .obsidian/plugins/*/data.json
+# Riêng cấu hình Templater (folder templates) phải theo template — không chứa dữ liệu riêng
+!.obsidian/plugins/templater-obsidian/data.json
 .env
 *.log
